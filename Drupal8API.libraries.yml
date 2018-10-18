@@ -1,0 +1,18 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      vendor/swiper/dist/css/swiper.min.css: {}
+      vendor/foundation/css/foundation.min.css: {}
+      css/jquery-ui.css: {}
+      css/fontawesome-all.min.css: {}
+      css/style.css: {}
+global-scripts:
+  version: 1.x
+  js: 
+    vendor/swiper/dist/js/swiper.min.js: {}
+    vendor/foundation/js/foundation.min.js: {}
+    js/jquery-ui.js: {}
+    js/custom.js: {}
+  dependencies:
+    - core/jquery    

@@ -1,0 +1,22 @@
+.actiontab{
+    background: #333;
+    position: fixed;
+    bottom:0;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 20;
+    color: #fff;
+    text-align: center;
+}
+.actiontab a,
+.actiontab a:hover{
+    color: #fff;
+}
+
+.sector {
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+}

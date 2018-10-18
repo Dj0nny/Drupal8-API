@@ -1,0 +1,11 @@
+name: Drupal8API
+type: theme
+description: 'Drupal8API theme'
+core: 8.x
+base theme: classy
+regions:
+  content: Content
+  actions: Actions
+libraries:
+  - Drupal8API/global-styling
+  - Drupal8API/global-scripts
