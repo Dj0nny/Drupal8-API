@@ -1,0 +1,11 @@
+<?php
+
+function Drupal8API_preprocess_node(&$variables) {
+    // function implementation here
+}
+
+function Drupal8API_preprocess_html(&$variables) {
+    // function implementation here
+}
+
+?>
