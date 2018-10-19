@@ -1,7 +1,16 @@
 <?php
 
-function Drupal8API_preprocess_node(&$variables) {
-    // function implementation here
+function Drupal8API_preprocess_node(&$variables) { // $variables is an array where are stored all Drupal's variables
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId(); // get the current language
+    $variables['lang_code'] = $language;
+    $variables['base_path'] = base_path(); // get the base path theme
+    $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage(); // store the front page url using the path matcher service
+    $cuser = \Drupal::currentUser(); // get the current user;
+    if(!$cuser->id()) {
+        $variables['logged _in'] = "0"; // if false -> $variables['logged_in'] = "0"
+    } else {
+        $variables['logged_in'] = "1"; // if true -> $variables['logged_in] = "1"
+    }
 }
 
 function Drupal8API_preprocess_html(&$variables) {
