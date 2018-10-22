@@ -1,8 +1,7 @@
 {{ attach_library('classy/node') }}
-<div{{ attributes.addClass(classes) }} >
 {{ title_prefix }}
 {{ title_suffix }}
-{% if loggato == 1 %}
+{% if logged_in == 1 %}
     <div class="actiontab">
         <a href="node/{{ node.id }}/edit">MODIFY</a>
     </div>

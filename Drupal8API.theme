@@ -7,14 +7,24 @@ function Drupal8API_preprocess_node(&$variables) { // $variables is an array whe
     $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage(); // store the front page url using the path matcher service
     $cuser = \Drupal::currentUser(); // get the current user;
     if(!$cuser->id()) {
-        $variables['logged _in'] = "0"; // if false -> $variables['logged_in'] = "0"
+        $variables['logged_in'] = "0"; // if false -> $variables['logged_in'] = "0"
     } else {
         $variables['logged_in'] = "1"; // if true -> $variables['logged_in] = "1"
     }
 }
 
 function Drupal8API_preprocess_html(&$variables) {
-    // function implementation here
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId(); // get the current language
+    $node = \Drupal::routeMatch()->getParameter('node'); // fetch the fields of the current node 
+    if($node) { // if it exists
+        $variables['attributes']['class'][] = 'node-'.$node->id();// into $variables['attributes']['class'] I put the 'node-'.$node->id(); string
+        $currentNodeA = $node->toArray(); // cast into Array
+        $variables['attributes']['class'][] = 'node-type-'.$currentNodeA['type'][0]['target_id']; // into $variables['attributes']['class'] I put the 'node-type-'.$currentNodeA['type'][0]['target_id'] string
+        $variables['attributes']['class'][] = 'i18n-'.$language; // into $variables['attributes']['class'] I put the 'i18n-'.$language; string
+        if(isset($currentNodeA['field_structure'])) { // if is set the structure fields
+            $variables['attributes']['class'][] = 'tax-'.$currentNodeA['field_structure'][0]['target_id']; // into $variables['attributes']['class'] I put the 'tax-'.$currentNodeA['field_structure'][0]['target_id']; string
+        }
+    }
 }
 
 ?>
